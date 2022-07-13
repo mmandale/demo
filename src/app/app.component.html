@@ -1,0 +1,58 @@
+<h2>{{title}}</h2>
+<div [ngClass]="'c1'">This is ngClass example</div>
+<div [ngClass]="styleClass">This is ngClass Example</div>
+
+<div  *ngIf ="success_msg ; else error_msg" style="background-color:aqua">
+  user added succesfully
+</div>
+<ng-template #error_msg style="background-color:bisque">
+
+    user was not added
+</ng-template>
+
+<h2>Learning ngFor</h2>
+<ul>
+  <li *ngFor="let contact of contacts; index as i; first as f; last as l">
+    <div *ngIf="f" style="background-color:lightseagreen;">this is first element</div>
+    <div>
+
+    {{ i }} {{contact.firstName}} {{contact.lastName}}
+    
+  
+</div>
+<div *ngIf="l" style="background-color:lightyellow;">this is last element</div>
+</li>
+</ul>
+
+<p> New table with Even and Odd</p>
+
+<ul>
+  <li *ngFor="let contact of contacts; index as i ;even as e;odd as o">
+    <div *ngIf="e" style="background-color:#ddd;">
+    {{i}} {{contact.firstName}} {{contact.lastName}}
+    </div>
+
+    <div *ngIf="o" style="background-color:#ffffcc;">
+      {{i}} {{contact.firstName}} {{contact.lastName}}
+      </div>
+    
+</li>
+</ul>
+
+
+<h2>Learning ngSwitch</h2>
+
+<div [ngSwitch]="superPower">
+  <div *ngSwitchCase="'wonderWomen'">Display Wonder women super powers</div>
+  <div *ngSwitchCase="'superMan'">Display SuperMan  super powers</div>
+  <div *ngSwitchCase="'heMan'">Display he Man super powers</div>
+  <div *ngSwitchCase="'SpiderMan'">Display SpiderMan super powers</div>
+</div>
+
+<h3>Learning ngStyle</h3>
+
+<div [ngStyle]="{'background-color':'green','color':'#fff'}">This is green Div</div>
+
+<div [ngStyle]="{'background-color':styleProp,'color':'#fff'}">This is Dynamic color Div</div>
+
+<div [ngStyle]="{'color': txtColor === 'orange'?'orange':'black'}">This is Conditional Div</div>
